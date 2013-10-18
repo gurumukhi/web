@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<events>
+	<event>
+		<date>14/10/2013</date>
+		<name>workshop 1</name>
+	</event>
+	<event>
+		<date>15/10/2013</date>
+		<name>workshop 2</name>
+	</event>
+</events>

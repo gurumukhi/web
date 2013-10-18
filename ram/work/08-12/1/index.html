@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+ <title> yep site </title> 
+ <link href='http://fonts.googleapis.com/css?family=Doppio+One' rel='stylesheet' type='text/css'>
+ <link href='http://fonts.googleapis.com/css?family=Cabin+Condensed' rel='stylesheet' type='text/css'>
+ <style>
+ @font-face{
+  font-family:webfont1;
+  src:url(blanch/BLANCH_CAPS.otf);
+ }
+ @font-face{
+  font-family:webfont2;
+  src:url(blanch/BLANCH_CONDENSED_LIGHT.otf);
+ }  
+ body{
+  background-image:url(bk.png);
+ } 
+ .f{
+  //font-family: 'Doppio One', sans-serif;
+  font-family:webfont1;
+  color:gray;
+  font-size:25px;
+ }
+ #hh1{
+  font-size:90px;
+ }
+ #hh2{
+  font-family: 'Cabin Condensed', sans-serif;
+  font-size:25px;
+ }
+ #t{
+  font-family: 'Cabin Condensed', sans-serif;
+  font-size:20px;
+ }
+ </style>
+</head>
+
+<body bgcolor="gray">
+
+<div width="50%" style="float:left;text-align:right">
+<p class="f" id="hh1">WEB WORLD 'BLOG'</p>
+<p class="f" id="hh2">Mail Subscription Form</p>
+
+</div>
+
+<div width="50%" style="" class="f" id="t">
+<br/></br><br/></br><br/></br><br/></br>
+<form>
+<table style="padding-left:150px;width:600px; height:400px;font-size:16px;">
+ <tr>
+  <td>
+   URL
+  </td>
+  <td>
+   <input type="url" placeholder="http://spider.nitt.edu/ram" size="30" disabled />
+  </td>
+  </tr>
+ <tr>
+  <td>
+   User Name
+  </td>
+  <td>
+   <input type="text" placeholder="username" autofocus required size="30" />
+  </td>
+  </tr>
+  <tr>
+  <td>
+   Email ID
+  </td>
+  <td>
+   <input type="email" placeholder="email id" required size="30" />
+  </td>
+  </tr>
+  <tr>
+  <td>
+   Subscription
+  </td>
+  <td>
+   <input type="radio" name="sub" value="Subscibe" checked="true">Subscribe</input><input type="radio" name="sub" value="Unsubscibe">Unsubscribe</input>
+  </td>
+  </tr>
+  <tr>
+  <td>
+   Other Options<br/>
+  </td>
+  <td>
+   <input type="checkbox" name="option" >Send me E-Mail in form of HTML. </input><br/>
+   <input type="checkbox" name="option" >Send me weekly digest also. </input><br/>
+   
+  </td>
+  </tr>
+  <tr>
+  <td>
+   Mail Per Week (1-10)
+  </td>
+  <td>
+   <input type="number"
+       min="1"
+       max="10"
+       step="1"
+       value="6">
+  </td>
+  </tr>
+  
+  <tr>
+  <td>
+   Wanna say something?<br/><br/>
+  </td>
+  <td>
+   <textarea placeholder="Your opinion about the site.." ></textarea>
+  </td>
+  </tr>
+  <tr><td></td><td> <input type="submit" value="Submit"/></td></tr>
+   </table>
+   </form>
+</div>
+</body>
+
+</html>

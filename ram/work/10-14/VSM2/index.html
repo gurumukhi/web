@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+<head>
+ <title> VSM </title> 
+ <style>
+ @font-face{
+  font-family:webfont1;
+  src:url(blanch/BLANCH_CAPS.otf);
+ }
+ @font-face{
+  font-family:webfont2;
+  src:url(blanch/BLANCH_CONDENSED_LIGHT.otf);
+ }  
+ body{
+  background-image:url(bk.png);
+ } 
+ .f{
+  //font-family: 'Doppio One', sans-serif;
+  font-family:webfont1;
+  color:gray;
+  font-size:25px;
+ }
+ #hh1{
+  font-size:90px;
+ }
+ #hh2{
+  font-family: 'Cabin Condensed', sans-serif;
+  font-size:25px;
+ }
+ #t{
+  font-family: 'Cabin Condensed', sans-serif;
+  font-size:20px;
+ }
+ a{
+  @font-family: 'Cabin Condensed', sans-serif;
+  font-size:19px;
+  color:gray;
+  float:right;
+  }
+  a:hover{
+   color:black;
+  text-decoration:none;
+  }
+ </style>
+ 
+ <link rel="stylesheet" type="text/css" media="all" href="jsDatePick_ltr.min.css" />
+ <script type="text/javascript" src="jsDatePick.min.1.3.js"></script>
+ 
+ <script>
+  var dates = new Array();
+  var events = new Array();
+  var all=0;
+ 
+window.onload = function(){
+		new JsDatePick({
+			useMode:2,
+			target:"inputField",
+			dateFormat:"%d-%M-%Y"
+			/*selectedDate:{				This is an example of what the full configuration offers.
+				day:5,						For full documentation about these settings please see the full version of the code.
+				month:9,
+				year:2006
+			},
+			yearsRange:[1978,2020],
+			limitToToday:false,
+			cellColorScheme:"beige",
+			dateFormat:"%m-%d-%Y",
+			imgPath:"img/",
+			weekStartDay:1*/
+		});
+	}; 
+  function addEvent(){
+  /*
+  var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+	dates[0] = day + "/" + month + "/" + year;
+	events[0] = "Workshop 1";
+  */
+  
+   var date1 = document.getElementById('date1');
+   var event1 = document.getElementById('event1');
+   
+   //dates[dates.length] = dates1.value
+   dates.push(date1.value);
+   events.push(event1.value);
+  }
+  
+  function today(){
+   var div1 = document.getElementById('today');
+   var div2 = document.getElementById('month');
+   var div3 = document.getElementById('add');
+   div1.style.display = 'inline';
+   div2.style.display = 'none';
+   div3.style.display = 'none';
+    
+  var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+  //document.write("<b>" + day + "/" + month + "/" + year + "</b>");
+  document.getElementById("curr_date").innerHTML = "<b>" + day + "/" + month + "/" + year + "</b>";  
+  document.getElementById("show").innerHTML = "";
+  for(var i=0;i<dates.length; i++){
+  var tod = day + "/" + month + "/" + year;
+  var dat = dates[i];
+  if(tod == dat)
+	document.getElementById("show").innerHTML += "<b>" + dates[i] + "</b><br/>" + events[i] + "<br/><br/>";
+  }
+  
+  } 
+  
+  function month(){
+   var div1 = document.getElementById('today');
+   var div2 = document.getElementById('month');
+   var div3 = document.getElementById('add');
+   div1.style.display = 'none';
+   div2.style.display = 'inline';
+   div3.style.display = 'none';
+   var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+  document.getElementById("curr_month").innerHTML = "<b>" + month + "," + year + "</b>";  
+  document.getElementById("show2").innerHTML = "";
+  for(var i=0;i<dates.length; i++){
+  var tod = month + "/" + year;
+  var dat = dates[i];
+  if(dat.indexOf(tod)!= -1)
+	document.getElementById("show2").innerHTML += "<b>" + dates[i] + "</b><br/>" + events[i] + "<br/><br/>";
+  }
+  }
+  
+  function add(){
+   var div1 = document.getElementById('today');
+   var div2 = document.getElementById('month');
+   var div3 = document.getElementById('add');
+   div1.style.display = 'none';
+   div2.style.display = 'none';
+   div3.style.display = 'inline';
+  } 
+ </script>
+</head>
+
+<body onload="today()">
+
+<div width="50%" style="float:left;text-align:right">
+<p class="f" id="hh1">Versatile<br/> Schedule Manager</p>
+<p class="f" id="hh2">
+<a style="cursor: pointer;" onclick="today()">
+View Today
+</a><br/><br/>
+<a style="cursor: pointer;" onclick="month()"> 
+Monthly Schedule
+</a><br/><br/>
+<a onclick="add()" style="cursor: pointer;"> 
+Add New Event
+</a>
+
+</p>
+
+</div>
+
+<div id="today" width="50%" class="f" id="t">
+<br/></br><br/></br><br/></br><br/></br>
+<form>
+<table style="padding-left:150px;width:600px; height:400px;font-size:30px;">
+ <tr>
+  <th>
+   Today : Date <span id="curr_date"></span>
+   </th>
+   </tr>
+   <tr>
+   <td>
+    Events - <br/><br/>
+     <span id="show">
+	 </span>
+<br/><br/><br/><br/>
+   </td>
+   </tr>
+   </table>
+   </form>
+</div>
+
+<div id="month" width="50%" style="display:none;" class="f" id="t">
+<br/></br><br/></br><br/></br><br/></br>
+<form>
+<table style="padding-left:150px;width:600px; height:400px;font-size:30px;">
+ <tr>
+  <th>
+   Month : <span id="curr_month"></span>
+   </th>
+   </tr>
+   <tr>
+   <td>
+     Events - <br/><br/>
+     <span id="show2">
+	 </span>
+<br/><br/><br/><br/>
+   </td>
+   </tr>
+   </table>
+   </form>
+</div>
+
+<div id="add" width="50%" style="display:none;" class="f" id="t">
+<br/></br><br/></br><br/></br><br/></br>
+<form>
+<table style="padding-left:150px;width:600px; height:400px;font-size:30px;">
+ <tr>
+  <th>
+   Add New Event
+   <br/><br/>
+   </th>
+   </tr>
+   <tr>
+   <td>
+     <form>
+	 <!--
+	 <input type="text" size="12" id="inputField" />
+	 <br/><br/><br/><br/>-->
+	  
+	  Event Date : <input type="text" placeholder="Date (dd/mm/yyyy)" id="date1"/>
+	  <br/><br/>
+	  Event Name : <input type="text" placeholder="Event Details" id="event1" style="width:200px"/>
+	  <br/><br/>
+	  Event Venue : <input type="text" placeholder="Event " id="" />
+	  <br/><br/>
+	  Event Time : From <input type="text" placeholder="Event " id="" style="width:50px" /> To <input style="width:50px" type="text" placeholder="Event " id="" />
+	  <br/><br/>
+	  Event Details : <textarea type="text" placeholder="Event " id="" > </textarea>
+	  <br/><br/>
+	  Contact Details : <input type="text" placeholder="Event " id="" />
+	  <br/><br/>
+	  <button onclick="addEvent()" type="button" /> Submit </button>
+	 </form>
+<br/><br/><br/><br/>
+   </td>
+   </tr>
+   </table>
+   </form>
+</div>
+</body>
+
+</html>
